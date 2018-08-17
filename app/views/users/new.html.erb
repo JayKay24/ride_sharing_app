@@ -1,0 +1,26 @@
+<% if @user.errors.any? %>
+  <ul class="Signup_Errors">
+    <% for message_error in @user.errors.full_messages %>
+      <li class="alert alert-danger alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close"> &times;
+        </a>
+        <%= message_error %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<div class="signup-page">
+  <div class="form">
+    <h1>Sign Up</h1>
+    <%= form_for(:user, url: { controller: 'users', action: 'create'}) do |f| %>
+      <%= f.text_field :first_name, placeholder: 'First Name', required: true %>
+      <%= f.text_field :last_name, placeholder: 'Last Name', required: true %>
+      <%= f.text_field :username, placeholder: 'Username', required: true %>
+      <%= f.text_field :email, placeholder: 'Email', required: true %>
+      <%= f.password_field :password, placeholder: 'Password', required: true %>
+      <%= f.password_field :password_confirmation, placeholder: 'Password Confirmation', required: true %>
+      <%= f.submit :signup, class: 'submit-button' %>
+    <% end %>
+  </div>
+</div>

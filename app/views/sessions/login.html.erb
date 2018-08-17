@@ -1,0 +1,10 @@
+<div class="login-page" xmlns="http://www.w3.org/1999/html">
+  <div class="form">
+    <h1>Log In</h1>
+    <%= form_tag(action: 'login_attempt', class: 'login-form') do %>
+      <%= text_field_tag(:email, value='', placeholder: 'Email', required: true ) %>
+      <%= password_field_tag(:login_password, value='', placeholder: 'Password', required: true) %>
+      <%= submit_tag('Log In', class: 'submit-button') %>
+    <% end %>
+  </div>
+</div>

@@ -5,11 +5,44 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
   </head>
 
   <body>
+    <div class="boostrap-alerts">
+      <% if flash[:error] %>
+        <div class="alert alert-danger alert-dismissable">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close"> &times;
+          </a>
+          <%= flash[:error] %>
+        </div>
+      <% end %>
+      <% if flash[:success] %>
+        <div class="alert alert-success alert-dismissable">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close"> &times;
+          </a>
+          <%= flash[:success] %>
+        </div>
+      <% end %>
+      <% if flash[:info] %>
+        <div class="alert alert-info alert-dismissable">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close"> &times;
+          </a>
+          <%= flash[:info] %>
+        </div>
+      <% end %>
+      <% if flash[:warning] %>
+        <div class="alert alert-warning alert-dismissable">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close"> &times;
+          </a>
+          <%= flash[:warning] %>
+        </div>
+      <% end %>
+    </div>
+
     <%= yield %>
   </body>
 </html>
