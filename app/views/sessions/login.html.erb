@@ -2,9 +2,15 @@
   <div class="form">
     <h1>Log In</h1>
     <%= form_tag(action: 'login_attempt', class: 'login-form') do %>
-      <%= text_field_tag(:email, value='', placeholder: 'Email', required: true ) %>
+      <%= text_field_tag(:email, value='', placeholder: 'Email or Username', required: true ) %>
       <%= password_field_tag(:login_password, value='', placeholder: 'Password', required: true) %>
       <%= submit_tag('Log In', class: 'submit-button') %>
+      <p class="message">
+        Not registered? <a href="<%= users_new_path %>">Create an account</a>
+      </p>
+      <p class="message">
+        <a href="<%=home_index_path %>">Cancel</a>
+      </p>
     <% end %>
   </div>
 </div>

@@ -20,10 +20,54 @@ body {
   background: -o-linear-gradient(right, #76b852, #8DC26F);
   background: linear-gradient(to left, #76b852, #8DC26F);
   font-family: "Roboto", sans-serif;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  #nav-header {
+    background-color: #4CAF50;
+    a {
+      color: #FFFFFF;
+    }
+  }
+  #register-vehicle-link, #create-ride-link {
+    text-decoration: none;
+  }
+  #logo {
+    text-decoration: none;
+    color: #FFFFFF;
+    &:hover {
+      color: #FFFFFF;
+    }
+  }
   .bootstrap-alerts {
     max-width: 22.500em;
+  }
+  .register-login-buttons {
+    display: inline-grid;
+    grid-template-columns: 50% 50%;
+    width: 70%;
+    margin-left: 15%;
+
+    .submit-button {
+      display: inline-block;
+      font-family: "Roboto", sans-serif;
+      text-transform: uppercase;
+      outline: 0;
+      background: #4CAF50;
+      width: 90%;
+      margin: 0 5%;
+      border: 0;
+      padding: 0.938em;
+      text-align: center;
+      text-decoration: none;
+      color: #FFFFFF;
+      font-size: 0.875em;
+      box-shadow: 0 0 1.250em 0 rgba(0, 0, 0, 0.2), 0 0.313em 0.313em 0 rgba(0, 0, 0, 0.24);
+
+      -webkit-transition: all 0.3 ease;
+      transition: all 0.3 ease;
+      cursor: pointer;
+    }
   }
   .form {
     position: relative;
@@ -44,10 +88,25 @@ body {
       padding: 0.938em;
       color: #FFFFFF;
       font-size: 0.875em;
+
       -webkit-transition: all 0.3 ease;
       transition: all 0.3 ease;
       cursor: pointer;
     }
+    .message {
+      margin: 0.938em 0 0;
+      color: #b3b3b3;
+      font-size: 0.750em;
+      a {
+        color: #4CAF50;
+        text-decoration: none;
+      }
+    }
+  }
+  #page {
+    width:65.000em;
+    margin:0 auto;
+    position:relative;
   }
   input {
     font-family: "Roboto", sans-serif;
@@ -59,5 +118,18 @@ body {
     padding: 0.938em;
     box-sizing: border-box;
     font-size: 0.875em;
+  }
+  footer {
+    display: block;
+    margin-bottom:30px;
+    text-align:center;
+    font-size:0.825em;
+    .line {
+      margin: 2em 0;
+    }
+    p {
+      margin-bottom:-2.5em;
+      position:relative;
+    }
   }
 }

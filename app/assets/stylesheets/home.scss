@@ -1,3 +1,26 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+article {
+  background-color:#FFFFFF;
+  margin:3em 0;
+  padding:1.250em;
+
+  box-shadow: 0 0 1.250em 0 rgba(0, 0, 0, 0.2), 0 0.313em 0.313em 0 rgba(0, 0, 0, 0.24);
+  figure {
+    border:0.063em solid #142830;
+    float:right;
+    height:18.750em;
+    margin-left:0.938em;
+    overflow:hidden;
+    width:31.250em;
+  }
+  img {
+    margin-left:-3.750em;
+  }
+  &:hover {
+    -moz-box-shadow:0 0 0.125em #4D7788;
+    -webkit-box-shadow:0 0 0.125em #4D7788;
+    box-shadow:0 0 0.125em #4D7788;
+  }
+}

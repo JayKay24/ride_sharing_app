@@ -21,6 +21,12 @@
       <%= f.password_field :password, placeholder: 'Password', required: true %>
       <%= f.password_field :password_confirmation, placeholder: 'Password Confirmation', required: true %>
       <%= f.submit :signup, class: 'submit-button' %>
+      <p class="message">
+        Already registered? <a href="<%= new_session_path %>">Sign In</a>
+      </p>
+      <p class="message">
+        <a href="<%=home_index_path %>">Cancel</a>
+      </p>
     <% end %>
   </div>
 </div>
