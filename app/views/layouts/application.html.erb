@@ -16,23 +16,25 @@
     <div class="mdl-layout mdl-js-layout">
       <header class="mdl-layout__header mdl-layout__header--transparent" id="nav-header">
         <div class="mdl-layout__header-row">
-          <a class="mdl-layout-title" id="logo" href="<%= home_index_path %>">Motor Pool</a>
+          <span class="mdl-layout-title" id="logo">Motor Pool</span>
           <div class="mdl-layout-spacer"></div>
           <nav class="mdl-navigation">
             <% if session[:user_id] %>
               <a class="mdl-navigation__link" id="register-vehicle-link" href="#">Register Vehicle</a>
-              <a class="mdl-navigation__link" id="create-ride-link" href="#">Create Ride</a>
             <% end %>
           </nav>
         </div>
       </header>
 
       <% if session[:user_id] %>
-        <div class="mdl-layout__drawer">
-          <nav class="mdl-navigation">
+        <div class="mdl-layout__drawer" id="div-drawer">
+          <span class="mdl-layout-title" id="session-username"><%= session[:username]%></span>
+          <nav class="mdl-navigation" id="nav-drawer">
             <a class="mdl-navigation__link" href="#">Ride Offers</a>
             <a class="mdl-navigation__link" href="#">Subscribed</a>
-            <div class="mdl-layout-spacer"></div>
+          </nav>
+          <div class="mdl-layout-spacer"></div>
+          <nav class="mdl-navigation" id="nav-drawer-2">
             <a class="mdl-navigation__link" href="<%= sessions_logout_path %>">Logout</a>
           </nav>
         </div>
@@ -71,12 +73,10 @@
         </div>
         <%= yield %>
         <br>
-        <footer>
-          <div class="line"></div>
-
-          <p>Copyright 2018 - James Kinyua Njuguna</p>
-        </footer>
       </main>
+      <footer>
+        <p>Copyright 2018 - James Kinyua Njuguna</p>
+      </footer>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

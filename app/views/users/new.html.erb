@@ -17,10 +17,10 @@
       <%= f.text_field :first_name, placeholder: 'First Name', required: true %>
       <%= f.text_field :last_name, placeholder: 'Last Name', required: true %>
       <%= f.text_field :username, placeholder: 'Username', required: true %>
-      <%= f.text_field :email, placeholder: 'Email', required: true %>
+      <%= f.text_field :email, placeholder: 'Email', required: true, type: 'email' %>
       <%= f.password_field :password, placeholder: 'Password', required: true %>
       <%= f.password_field :password_confirmation, placeholder: 'Password Confirmation', required: true %>
-      <%= f.submit :signup, class: 'submit-button' %>
+      <%= f.submit :'sign up', class: 'submit-button' %>
       <p class="message">
         Already registered? <a href="<%= new_session_path %>">Sign In</a>
       </p>

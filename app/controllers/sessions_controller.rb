@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
     authorized_user = User.authenticate(params[:email], params[:login_password])
     if authorized_user
       session[:user_id] = authorized_user.id
+      session[:username] = authorized_user.username
       flash[:success] = %(Wow Welcome again,
                         you logged in as
                         #{authorized_user.username})
