@@ -1,0 +1,47 @@
+<div class="vehicle-title">
+    <h3>All Vehicles</h3>
+</div>
+<% @vehicles.each do |vehicle|%>
+    <div class="card">
+        <div class="card-container">
+            <table class="vehicle-details">
+                <tr>
+                    <td class="headers">Make</td>
+                    <td><%= vehicle.make %></td>
+                </tr>
+                <tr>
+                    <td class="headers">Registration Number</td>
+                    <td><%= vehicle.reg_no %></td>
+                </tr>
+                <tr>
+                    <td class="headers">Seats</td>
+                    <td><%= vehicle.no_of_seats %></td>
+                </tr>
+                <tr>
+                    <td class="headers">Vehicle Type</td>
+                    <td><%= vehicle.vehicle_type %></td>
+                </tr>
+            </table>
+            <p></p>
+            <table class="action-icons">
+                <tr>
+                    <td>
+                        <a href="#">
+                            <i class="fa fa-car"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="#">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="#">
+                            <i class="fa fa-trash" id="delete-icon"></i>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+<% end %>

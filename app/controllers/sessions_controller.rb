@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       flash[:success] = %(Wow Welcome again,
                         you logged in as
                         #{authorized_user.username})
-      redirect_to sessions_home_path
+      redirect_to all_vehicles_path
     else
       flash[:error] = 'Invalid email or password'
       render 'login'

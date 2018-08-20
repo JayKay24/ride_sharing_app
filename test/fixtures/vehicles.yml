@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  model: MyString
+  reg_no: MyString
+  no_of_seats: MyString
+  type: 
+  user: one
+
+two:
+  model: MyString
+  reg_no: MyString
+  no_of_seats: MyString
+  type: 
+  user: two

@@ -4,6 +4,8 @@ class User < ApplicationRecord
 
   attr_accessor :password, :password_confirmation
 
+  has_many :vehicles, dependent: :destroy
+
   EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
   PASSWORD_REGEX = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\W]).{8,}$/
 

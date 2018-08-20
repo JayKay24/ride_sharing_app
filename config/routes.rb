@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  # get 'vehicles/index'
+  # get 'vehicles/create'
   get 'home/index'
   controller :users do
     get 'users/new' => :new
@@ -10,6 +12,12 @@ Rails.application.routes.draw do
     post 'sessions/' => :login_attempt
     get 'sessions/home' => :home
     get 'sessions/logout' => :logout
+  end
+
+  controller :vehicles do
+    get 'vehicles/new' => :new, as: 'new_vehicle'
+    get 'vehicles/' => :index, as: 'all_vehicles'
+    post 'vehicles/' => :create
   end
 
   # root 'sessions#home', as: 'home'

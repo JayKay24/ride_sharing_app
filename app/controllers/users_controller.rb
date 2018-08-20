@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     if @user.save
       flash[:success] = 'You successfully signed up!'
       session[:user_id] = @user.id
-      redirect_to sessions_home_path
+      redirect_to new_vehicle_path
     else
       flash[:error] = 'Form is invalid'
       render 'new'

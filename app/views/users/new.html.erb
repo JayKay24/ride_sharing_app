@@ -1,4 +1,4 @@
-<% if @user.errors.any? %>
+<% if @user.errors.any? %> %>
   <ul class="Signup_Errors">
     <% for message_error in @user.errors.full_messages %>
       <li class="alert alert-danger alert-dismissable">
@@ -12,7 +12,7 @@
 
 <div class="signup-page">
   <div class="form">
-    <h1>Sign Up</h1>
+    <h4>Sign Up</h4>
     <%= form_for(:user, url: { controller: 'users', action: 'create'}) do |f| %>
       <%= f.text_field :first_name, placeholder: 'First Name', required: true %>
       <%= f.text_field :last_name, placeholder: 'Last Name', required: true %>
