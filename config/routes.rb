@@ -8,10 +8,10 @@ Rails.application.routes.draw do
   end
 
   controller :sessions do
-    get 'sessions/login' => :login, as: 'new_session'
-    post 'sessions/' => :login_attempt
+    get 'sessions/login' => :new, as: 'new_session'
+    post 'sessions/' => :create
     get 'sessions/home' => :home
-    get 'sessions/logout' => :logout
+    get 'sessions/logout' => :destroy
   end
 
   controller :vehicles do

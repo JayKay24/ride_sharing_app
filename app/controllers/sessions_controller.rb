@@ -2,11 +2,11 @@ class SessionsController < ApplicationController
   before_action :authenticate_user, only: %i[home profile setting]
   before_action :save_login_state, only: %i[login login_attempt]
 
-  def login
+  def new
     # Login form
   end
 
-  def login_attempt
+  def create
     authorized_user = User.authenticate(params[:email], params[:login_password])
     if authorized_user
       session[:user_id] = authorized_user.id
@@ -17,11 +17,11 @@ class SessionsController < ApplicationController
       redirect_to all_vehicles_path
     else
       flash[:error] = 'Invalid email or password'
-      render 'login'
+      render 'new'
     end
   end
 
-  def logout
+  def destroy
     session[:user_id] = nil
     flash[:info] = 'You were logged out'
     redirect_to new_session_path

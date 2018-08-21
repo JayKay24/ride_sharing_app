@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
       @current_user = User.find session[:user_id]
       true
     else
-      redirect_to controller: 'sessions', action: 'login'
+      redirect_to controller: 'sessions', action: 'new'
       false
     end
   end
