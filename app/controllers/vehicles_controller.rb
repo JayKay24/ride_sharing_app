@@ -10,7 +10,7 @@ class VehiclesController < ApplicationController
   end
 
   def create
-    @vehicle = @current_user.vehicles.create(user_params)
+    @vehicle = @current_user.vehicles.create(vehicle_params)
     if @vehicle.save
       flash[:success] = 'You successfully created a vehicle!'
       redirect_to all_vehicles_path
@@ -22,7 +22,7 @@ class VehiclesController < ApplicationController
 
   private
 
-  def user_params
+  def vehicle_params
     params.require(:vehicle).permit(
       :make, :reg_no, :no_of_seats, :vehicle_type
     )

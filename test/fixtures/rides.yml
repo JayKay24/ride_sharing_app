@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  origin: MyString
+  destination: MyString
+  remaining_seats: 1
+  take_off_time: 2018-08-21 11:58:51
+  take_off_date: 2018-08-21
+  vehicle: one
+
+two:
+  origin: MyString
+  destination: MyString
+  remaining_seats: 1
+  take_off_time: 2018-08-21 11:58:51
+  take_off_date: 2018-08-21
+  vehicle: two

@@ -6,4 +6,5 @@ class Vehicle < ApplicationRecord
             numericality: { only_integer: true }
 
   belongs_to :user
+  has_many :rides, dependent: :destroy
 end

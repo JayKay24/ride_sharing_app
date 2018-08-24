@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_action :authenticate_user, only: %i[home profile setting]
+  before_action :authenticate_user, only: %i[home]
   before_action :save_login_state, only: %i[login login_attempt]
 
   def new
@@ -23,6 +23,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
+    session[:username] = nil
     flash[:info] = 'You were logged out'
     redirect_to new_session_path
   end

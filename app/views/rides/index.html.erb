@@ -1,0 +1,34 @@
+<div class="ride-title">
+    <h3>All Rides</h3>
+</div>
+<div>
+    <table class="rides-table">
+        <tr>
+            <th>Origin</th>
+            <th>Destination</th>
+            <th>Remaining Seats</th>
+            <th>Departure Time</th>
+            <th>Departure Date</th>
+            <th colspan="2">Actions</th>
+        </tr>
+        <% @rides.each do |ride|%>
+            <tr>
+                <td><%= ride.origin %></td>
+                <td><%= ride.destination %></td>
+                <td><%= ride.remaining_seats %></td>
+                <td><%= ride.take_off_time %></td>
+                <td><%= ride.take_off_date %></td>
+                <td>
+                    <a href="#">
+                        <i class="fa fa-user-plus"></i>
+                    </a>
+                </td>
+                <td>
+                    <a href="#">
+                        <i class="fa fa-user-times" id="unsubscribe"></i>
+                    </a>
+                </td>
+            </tr>
+        <% end%>
+    </table>
+</div>

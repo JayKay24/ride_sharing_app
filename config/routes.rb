@@ -20,6 +20,15 @@ Rails.application.routes.draw do
     post 'vehicles/' => :create
   end
 
+  controller :rides do
+    get 'rides/index' => :index, as: 'all_rides'
+    get 'rides/show' => :show
+    get 'rides/new/:vehicle_id' => :new, as: 'new_ride'
+    post 'rides/create' => :create
+    get 'rides/update' => :update
+    get 'rides/destroy' => :destroy
+  end
+
   # root 'sessions#home', as: 'home'
   root to: 'home#index'
 
