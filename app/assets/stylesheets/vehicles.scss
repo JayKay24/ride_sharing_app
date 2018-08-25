@@ -24,6 +24,13 @@
             td {
                 padding: 0.500em;
                 text-align: center;
+                a {
+                    &:hover {
+                        .tooltiptext {
+                            visibility: visible;
+                        }
+                    }
+                }
                 #delete-icon {
                     &:hover {
                         color: red;

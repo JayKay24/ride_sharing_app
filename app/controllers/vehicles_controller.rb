@@ -3,6 +3,9 @@ class VehiclesController < ApplicationController
 
   def index
     @vehicles = @current_user.vehicles.all
+    if @vehicles.length == 0
+      flash[:info] = 'You currently have no vehicles registered'
+    end
   end
 
   def new

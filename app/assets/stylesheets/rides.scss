@@ -40,6 +40,7 @@
 }
 .ride-title {
     color: #ffffff;
+    text-align: center;
 }
 .rides-table {
     border-collapse: collapse;
@@ -66,17 +67,26 @@
     td {
         color: #4CAF50;
         text-align: center;
-        #unsubscribe {
-            &:hover {
+        a {
+            #normal-user {
+                &:hover {
+                    color: #76b852;
+                }
+            }
+            #normal-ban {
                 color: red;
             }
+            &:hover {
+                .tooltiptext {
+                    visibility: visible;
+                }
+            }
+        }
+        #disabled-user, #disabled-ban {
+            color: #A9A9A9;
         }
         i {
             font-size: 30px;
-            color: #4CAF50;
-            &:hover {
-                color: #76b852;
-            }
         }
     }
 }

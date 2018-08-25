@@ -4,4 +4,6 @@ class Ride < ApplicationRecord
             presence: true
 
   belongs_to :vehicle
+  has_many :subscriptions
+  has_many :users, through: :subscriptions
 end

@@ -1,13 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  make: MyString
-  no_of_seats: 1
-  vehicle_type: MyString
   user: one
+  ride: one
 
 two:
-  make: MyString
-  no_of_seats: 1
-  vehicle_type: MyString
   user: two
+  ride: two

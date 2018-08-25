@@ -29,6 +29,13 @@ Rails.application.routes.draw do
     get 'rides/destroy' => :destroy
   end
 
+  controller :subscriptions do
+    get 'subscriptions/index' => :index, as: 'my_subscriptions'
+    get 'subscriptions/create/:ride_id' => :create, as: 'subscribe'
+    get 'subscriptions/update'
+    get 'subscriptions/destroy'
+  end
+
   # root 'sessions#home', as: 'home'
   root to: 'home#index'
 

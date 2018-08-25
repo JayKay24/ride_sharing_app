@@ -20,8 +20,8 @@ class RidesController < ApplicationController
     @ride = vehicle.rides.new(ride_params)
     @ride.remaining_seats = vehicle.no_of_seats
     if @ride.save
-      flash[:success] = 'You successfully created a vehicle!'
-      redirect_to all_vehicles_path
+      flash[:success] = 'You successfully created a ride!'
+      redirect_to all_rides_path
     else
       flash[:error] = 'Form is invalid'
       render 'new'

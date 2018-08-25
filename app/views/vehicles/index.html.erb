@@ -1,5 +1,5 @@
 <div class="vehicle-title">
-    <h3>All Vehicles</h3>
+    <h3>My Vehicles</h3>
 </div>
 <% @vehicles.each do |vehicle|%>
     <div class="card">
@@ -28,16 +28,19 @@
                     <td>
                         <a href="<%= new_ride_path(vehicle_id: vehicle.id) %>">
                             <i class="fa fa-car" id="car-icon"></i>
+                            <span class="tooltiptext">New Ride</span>
                         </a>
                     </td>
                     <td>
                         <a href="#">
                             <i class="fa fa-edit"></i>
+                            <span class="tooltiptext">Edit Ride</span>
                         </a>
                     </td>
                     <td>
                         <a href="#">
                             <i class="fa fa-trash" id="delete-icon"></i>
+                            <span class="tooltiptext">Delete Ride</span>
                         </a>
                     </td>
                 </tr>
