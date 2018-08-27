@@ -5,9 +5,13 @@ class RidesController < ApplicationController
 
   def index
     @rides = Ride.all
+    if @rides.count == 0
+      flash[:info] = 'There are no ride offers at the moment.'
+    end
   end
 
   def show
+    
   end
 
   def new
@@ -32,6 +36,10 @@ class RidesController < ApplicationController
   end
 
   def destroy
+    ride = Ride.find(params[:ride_id])
+    ride.destroy
+    flash[:success] = 'You successfully cancelled the ride'
+    redirect_to all_rides_path
   end
 
   private

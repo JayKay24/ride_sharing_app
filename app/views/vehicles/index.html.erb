@@ -34,13 +34,13 @@
                     <td>
                         <a href="#">
                             <i class="fa fa-edit"></i>
-                            <span class="tooltiptext">Edit Ride</span>
+                            <span class="tooltiptext">Edit Vehicle Details</span>
                         </a>
                     </td>
                     <td>
-                        <a href="#">
+                        <a href="<%= deregister_vehicle_path(vehicle_id: vehicle.id, method: :delete) %>">
                             <i class="fa fa-trash" id="delete-icon"></i>
-                            <span class="tooltiptext">Delete Ride</span>
+                            <span class="tooltiptext">De-register vehicle</span>
                         </a>
                     </td>
                 </tr>

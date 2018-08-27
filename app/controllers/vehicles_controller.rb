@@ -4,8 +4,11 @@ class VehiclesController < ApplicationController
   def index
     @vehicles = @current_user.vehicles.all
     if @vehicles.length == 0
-      flash[:info] = 'You currently have no vehicles registered'
+      flash[:info] = 'You have no vehicles registered at the moment.'
     end
+  end
+
+  def show
   end
 
   def new
@@ -24,6 +27,12 @@ class VehiclesController < ApplicationController
   end
 
   def update
+  end
+
+  def destroy
+    Vehicle.find(params[:vehicle_id]).destroy
+    flash[:success] = 'You successfully  deregistered the vehicle'
+    redirect_to all_vehicles_path
   end
 
   private
