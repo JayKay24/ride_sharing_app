@@ -68,7 +68,7 @@
         color: #4CAF50;
         text-align: center;
         a {
-            #normal-user {
+            #normal-user, #normal-edit {
                 &:hover {
                     color: #76b852;
                 }
@@ -82,7 +82,7 @@
                 }
             }
         }
-        #disabled-user, #disabled-ban {
+        #disabled-user, #disabled-ban, #disabled-edit {
             color: #A9A9A9;
         }
         i {

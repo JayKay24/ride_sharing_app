@@ -14,12 +14,15 @@ class SubscriptionsController < ApplicationController
     if @current_user.id == vehicle.user_id
       flash[:error] = 'You cannot subscribe to a ride you have created.'
       redirect_to all_rides_path
+    elseif
+    
     else
       if @current_user.rides.include?(ride)
         flash[:info] = 'You have already subscribed to this ride'
         redirect_to all_rides_path
       else
         @current_user.rides << ride
+        ride.update(remaining_seats: ride.remaining_seats - 1)
         flash[:success] = "You successfully subscribed to a ride on #{vehicle.make} #{vehicle.reg_no}"
         redirect_to my_subscriptions_path
       end
@@ -30,5 +33,13 @@ class SubscriptionsController < ApplicationController
   end
 
   def destroy
+    ride = Ride.find(params[:ride_id])
+    subscription = @current_user.subscriptions.find_by(
+      ride_id: params[:ride_id]
+    )
+    subscription.destroy
+    ride.update(remaining_seats: ride.remaining_seats + 1)
+    flash[:success] = 'You successfully unsubscribed from this ride'
+    redirect_to my_subscriptions_path
   end
 end

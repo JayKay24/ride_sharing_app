@@ -9,7 +9,7 @@
             <th>Remaining Seats</th>
             <th>Departure Time</th>
             <th>Departure Date</th>
-            <th colspan="2">Actions</th>
+            <th colspan="3">Actions</th>
         </tr>
         <% @rides.each do |ride|%>
             <tr>
@@ -24,6 +24,12 @@
                     </td>
                     <td>
                         <a href="#">
+                            <i class="fa fa-edit" id="normal-edit"></i>
+                            <span class="tooltiptext">Edit Ride</span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="#">
                             <i class="fa fa-ban" id="normal-ban"></i>
                             <span class="tooltiptext">Cancel Ride</span>
                         </a>
@@ -34,6 +40,9 @@
                             <i class="fa fa-user-plus" id="normal-user"></i>
                             <span class="tooltiptext">Subscribe to Ride</span>
                         </a>
+                    </td>
+                    <td>
+                        <i class="fa fa-edit" id="disabled-edit"></i>
                     </td>
                     <td>
                         <i class="fa fa-ban" id="disabled-ban"></i>

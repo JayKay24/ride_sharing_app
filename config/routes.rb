@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  # get 'vehicles/index'
-  # get 'vehicles/create'
   get 'home/index'
   controller :users do
     get 'users/new' => :new
@@ -18,6 +16,7 @@ Rails.application.routes.draw do
     get 'vehicles/new' => :new, as: 'new_vehicle'
     get 'vehicles/' => :index, as: 'all_vehicles'
     post 'vehicles/' => :create
+    get 'vehicles/update' => :new, as: 'update_vehicle'
   end
 
   controller :rides do
@@ -25,7 +24,6 @@ Rails.application.routes.draw do
     get 'rides/show' => :show
     get 'rides/new/:vehicle_id' => :new, as: 'new_ride'
     post 'rides/create' => :create
-    get 'rides/update' => :update
     get 'rides/destroy' => :destroy
   end
 
@@ -33,10 +31,10 @@ Rails.application.routes.draw do
     get 'subscriptions/index' => :index, as: 'my_subscriptions'
     get 'subscriptions/create/:ride_id' => :create, as: 'subscribe'
     get 'subscriptions/update'
-    get 'subscriptions/destroy'
+    get 'subscriptions/destroy/:ride_id' => :destroy, as: 'unsubscribe'
   end
 
-  # root 'sessions#home', as: 'home'
+  # # root 'sessions#home', as: 'home'
   root to: 'home#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

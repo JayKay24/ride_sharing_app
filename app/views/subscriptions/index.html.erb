@@ -19,7 +19,7 @@
                 <td><%= ride.take_off_time %></td>
                 <td><%= ride.take_off_date %></td>
                 <td>
-                    <a href="#">
+                    <a href="<%= unsubscribe_path(ride_id: ride.id) %>">
                         <i class="fa fa-user-times" id="unsubscribe"></i>
                     </a>
                 </td>
