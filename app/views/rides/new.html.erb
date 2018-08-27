@@ -14,8 +14,8 @@
   <div class="form">
     <h4>Create Ride Offer</h4>
     <%= form_for(:ride, url: { controller: 'rides', action: 'create'}) do |f| %>
-      <%= f.text_field :origin, placeholder: 'Origin', required: true %>
-      <%= f.text_field :destination, placeholder: 'Destination', required: true %>
+      <%= f.text_field :origin, placeholder: 'Origin', required: true, id: 'origin'%>
+      <%= f.text_field :destination, placeholder: 'Destination', required: true, id: 'destination' %>
       <%= f.text_field :take_off_time, type: 'time', 
           placeholder: 'Depature Time', required: true, class: 'time' %>
       <%= f.text_field :take_off_date, type: 'date', 

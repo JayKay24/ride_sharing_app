@@ -1,2 +1,43 @@
-<h1>Rides#update</h1>
-<p>Find me in app/views/rides/update.html.erb</p>
+<% if @ride.errors.any? %>
+  <ul class="Ride_Errors">
+    <% for message_error in @ride.errors.full_messages %>
+      <li class="alert alert-danger alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close"> &times;
+        </a>
+        <%= message_error %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<div class="create-ride">
+  <div class="form">
+    <h4>Edit Ride Offer</h4>
+    <%= form_for(:ride, url: { controller: 'rides', action: 'update', method: :put}) do |f| %>
+      <% if @ride.subscriptions.count > 0 %>
+        <%= f.text_field :origin, placeholder: 'Origin', required: true, 
+            value: @ride.origin, id: 'origin', disabled: 'disabled' %>
+        <%= f.text_field :destination, placeholder: 'Destination', required: true, 
+            value: @ride.destination, id: 'destination', disabled: 'disabled' %>
+        <%= f.text_field :take_off_time, type: 'time', 
+            placeholder: 'Depature Time', required: true, value: @ride.take_off_time, class: 'time' %>
+        <%= f.text_field :take_off_date, type: 'date', 
+            placeholder: 'Departure Date', required: true, value: @ride.take_off_date, class: 'date', disabled: 'disabled' %>
+      <% else %>
+        <%= f.text_field :origin, placeholder: 'Origin', required: true, value: @ride.origin, id: 'origin' %>
+        <%= f.text_field :destination, placeholder: 'Destination', required: true, 
+            value: @ride.destination, id: 'destination' %>
+        <%= f.text_field :take_off_time, type: 'time', 
+            placeholder: 'Depature Time', required: true, value: @ride.take_off_time, class: 'time' %>
+        <%= f.text_field :take_off_date, type: 'date', 
+            placeholder: 'Departure Date', required: true, value: @ride.take_off_date, class: 'date' %>
+      <% end %>
+      <%= f.text_field :id, value: @ride.id, type: 'hidden' %>
+      <%= f.text_field :_method, value: 'PUT', type: 'hidden' %>
+      <%= f.submit :'Update Ride', class: 'submit-button' %>
+      <p class="message">
+        <a href="<%=all_rides_path %>">Cancel</a>
+      </p>
+    <% end %>
+  </div>
+</div>

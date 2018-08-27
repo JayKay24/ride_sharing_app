@@ -16,26 +16,27 @@ Rails.application.routes.draw do
     get 'vehicles/new' => :new, as: 'new_vehicle'
     get 'vehicles/' => :index, as: 'all_vehicles'
     post 'vehicles/' => :create
-    get 'vehicles/update' => :new, as: 'update_vehicle'
-    get 'vehicles/destroy/:vehicle_id' => :destroy, as: 'deregister_vehicle'
+    get 'vehicles/show/' => :show, as: 'show_vehicle'
+    post 'vehicles/update/' => :update
+    get 'vehicles/destroy/:id' => :destroy, as: 'deregister_vehicle'
   end
 
   controller :rides do
     get 'rides/index' => :index, as: 'all_rides'
-    get 'rides/show' => :show
+    get 'rides/show' => :show, as: 'show_ride'
     get 'rides/new/:vehicle_id' => :new, as: 'new_ride'
     post 'rides/create' => :create
-    get 'rides/destroy/:ride_id' => :destroy, as: 'cancel_ride'
+    post 'rides/update/' => :update, as: 'update_ride'
+    get 'rides/destroy/:id' => :destroy, as: 'cancel_ride'
   end
 
   controller :subscriptions do
     get 'subscriptions/index' => :index, as: 'my_subscriptions'
-    get 'subscriptions/create/:ride_id' => :create, as: 'subscribe'
+    get 'subscriptions/create/:id' => :create, as: 'subscribe'
     get 'subscriptions/update'
-    delete 'subscriptions/destroy/:ride_id' => :destroy, as: 'unsubscribe'
+    get 'subscriptions/destroy/:id' => :destroy, as: 'unsubscribe'
   end
 
-  # # root 'sessions#home', as: 'home'
   root to: 'home#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

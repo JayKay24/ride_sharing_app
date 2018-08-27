@@ -11,7 +11,8 @@ class RidesController < ApplicationController
   end
 
   def show
-    
+    @ride = Ride.find(params[:id])
+    render 'update'
   end
 
   def new
@@ -33,10 +34,19 @@ class RidesController < ApplicationController
   end
 
   def update
+    @ride = Ride.find(ride_params[:id])
+    @ride.update(ride_params)
+    if @ride.save
+      flash[:success] = 'You successfully edited the ride offer!'
+      redirect_to all_rides_path
+    else
+      flash[:error] = 'Form is invalid'
+      render 'update'
+    end
   end
 
   def destroy
-    ride = Ride.find(params[:ride_id])
+    ride = Ride.find(params[:id])
     ride.destroy
     flash[:success] = 'You successfully cancelled the ride'
     redirect_to all_rides_path
@@ -46,7 +56,7 @@ class RidesController < ApplicationController
 
   def ride_params
     params.require(:ride).permit(
-      :vehicle_id, :origin, :destination,
+      :vehicle_id, :id, :origin, :destination,
       :take_off_time, :take_off_date
     )
   end

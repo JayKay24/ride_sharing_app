@@ -9,13 +9,14 @@ class SubscriptionsController < ApplicationController
   end
 
   def create
-    ride = Ride.find(params[:ride_id])
+    ride = Ride.find(params[:id])
     vehicle = Vehicle.find(ride.vehicle_id)
     if @current_user.id == vehicle.user_id
-      flash[:error] = 'You cannot subscribe to a ride you have created.'
+      flash[:info] = 'You cannot subscribe to a ride you have created.'
       redirect_to all_rides_path
-    elseif
-    
+    elsif ride.remaining_seats <= 0
+      flash[:info] = 'Sorry this ride is already full'
+      redirect_to all_rides_path
     else
       if @current_user.rides.include?(ride)
         flash[:info] = 'You have already subscribed to this ride'
@@ -33,9 +34,9 @@ class SubscriptionsController < ApplicationController
   end
 
   def destroy
-    ride = Ride.find(params[:ride_id])
+    ride = Ride.find(params[:id])
     subscription = @current_user.subscriptions.find_by(
-      ride_id: params[:ride_id]
+      ride_id: params[:id]
     )
     subscription.destroy
     ride.update(remaining_seats: ride.remaining_seats + 1)

@@ -1,7 +1,7 @@
 # Motor Pool App
 
 Motor Pool App is a carpooling application that provides drivers with the ability to create ride offers and passengers 
-to join available ride offers.
+to join available ride offers. The Heroku link can be found [here](https://motor-pool.herokuapp.com/):
 
 #### Getting Started
 

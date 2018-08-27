@@ -82,6 +82,13 @@
                 }
             }
         }
+        .hover-tooltip {
+            &:hover {
+                .tooltiptext {
+                    visibility: visible;
+                }
+            }
+        }
         #disabled-user, #disabled-ban, #disabled-edit {
             color: #A9A9A9;
         }
