@@ -1,0 +1,27 @@
+<% if @vehicle.errors.any? %>
+  <ul class="Vehicle_Errors">
+    <% for message_error in @vehicle.errors.full_messages %>
+      <li class="alert alert-danger alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close"> &times;
+        </a>
+        <%= message_error %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<div class="vehicle-registration">
+  <div class="form">
+    <h4>Register Vehicle</h4>
+    <%= form_for(:vehicle, url: { controller: 'vehicles', action: 'create' }) do |f| %>
+      <%= f.text_field :make, placeholder: 'Vehicle Make', required: true %>
+      <%= f.text_field :reg_no, placeholder: 'Registration Number', required: true %>
+      <%= f.text_field :no_of_seats, placeholder: 'Number of Seats', required: true %>
+      <%= f.text_field :vehicle_type, placeholder: 'Vehicle type', required: true %>
+      <%= f.submit :'Register', class: 'submit-button' %>
+      <p class="message">
+        <a href="<%=all_vehicles_path %>">Cancel</a>
+      </p>
+    <% end %>
+  </div>
+</div>
