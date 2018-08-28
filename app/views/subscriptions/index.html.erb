@@ -15,11 +15,16 @@
             <tr>
                 <td><%= ride.origin %></td>
                 <td><%= ride.destination %></td>
-                <td><%= ride.remaining_seats %></td>
+                <td>
+                    <%= ride.remaining_seats %>
+                    <% if ride.remaining_seats == 0 %>
+                        <span class="label label-info">Full</span>
+                    <% end %>
+                </td>
                 <td><%= ride.take_off_time %></td>
                 <td><%= ride.take_off_date %></td>
                 <td>
-                    <a href="<%= unsubscribe_path(ride_id: ride.id) %>">
+                    <a href="<%= unsubscribe_path(id: ride.id) %>">
                         <i class="fa fa-user-times" id="unsubscribe"></i>
                     </a>
                 </td>
