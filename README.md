@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/JayKay24/ride_sharing_app.svg?branch=test-motor-pool-160057260)](https://travis-ci.org/JayKay24/ride_sharing_app)
+[![Maintainability](https://api.codeclimate.com/v1/badges/029e518a71b8c7d8b4df/maintainability)](https://codeclimate.com/github/JayKay24/ride_sharing_app/maintainability)
+[![Coverage Status](https://coveralls.io/repos/github/JayKay24/ride_sharing_app/badge.svg?branch=test-motor-pool-160057260)](https://coveralls.io/github/JayKay24/ride_sharing_app?branch=test-motor-pool-160057260)
+
 # Motor Pool App
 
 Motor Pool App is a carpooling application that provides drivers with the ability to create ride offers and passengers 
@@ -6,16 +10,31 @@ to join available ride offers. The Heroku link can be found [here](https://motor
 #### Getting Started
 
 ```
-$ git clone https://github.com/JayKay24/micro_learning_web_app.git
-$ cd micro_learning_web_app
+$ git clone https://github.com/JayKay24/ride_sharing_app.git
+$ cd ride_sharing_app
 ```
 
 
 #### Prerequisites
 
+The Gemfile contains multiple gems to get you up to date with the dependencies
+needed to run the application.
+On the command line. Type:
+
+```
+$ cd ride_sharing_app
+$ bundle install
+(- For the next step, you will need to enter your database credentials first before proceeding)
+$ rails db:migrate
+$ rails server
+```
 
 #### Running the tests
 
+On the command line, type:
+```
+$ bundle exec rspec
+```
 
 #### Deployment
 

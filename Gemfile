@@ -47,6 +47,7 @@ group :development, :test do
     git: "https://github.com/thoughtbot/shoulda-matchers.git", 
     branch: "rails-5"
   gem 'factory_bot_rails'
+  gem 'term-ansicolor'
 end
 
 group :development do
@@ -66,6 +67,8 @@ group :test do
   gem 'chromedriver-helper'
   gem 'database_cleaner'
   gem 'rails-controller-testing'
+  gem 'simplecov', require: false
+  gem 'coveralls', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

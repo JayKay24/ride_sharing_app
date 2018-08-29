@@ -9,6 +9,7 @@ class Vehicle < ApplicationRecord
                        'format "KBA 234 D"' }
 
   validates :no_of_seats,
+            presence: true,
             numericality: { only_integer: true }
 
   belongs_to :user
