@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe HomeController do
-  describe 'GET #index' do
+  describe 'index' do
     it "should display 'Car Pooling' in the home page" do
-      get '/home/index'
+      get '/home'
 
       expect(response.status).to eq 200
       expect(response.body).to include('Car Pooling')

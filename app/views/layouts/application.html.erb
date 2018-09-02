@@ -24,7 +24,7 @@
               <a class="mdl-navigation__link" id="register-vehicle-link" href="<%= new_vehicle_path %>">
                 Register Vehicle
               </a>
-              <a class="mdl-navigation__link" id="register-vehicle-link" href="<%= all_vehicles_path %>">
+              <a class="mdl-navigation__link" id="register-vehicle-link" href="<%= vehicles_path %>">
                 My Vehicles
               </a>
             <% end %>
@@ -36,11 +36,11 @@
         <div class="mdl-layout__drawer" id="div-drawer">
           <span class="mdl-layout-title" id="session-username"><%= session[:username]%></span>
           <nav class="mdl-navigation" id="nav-drawer">
-            <a class="mdl-navigation__link" href="<%= all_rides_path %>">
+            <a class="mdl-navigation__link" href="<%= rides_path %>">
               Ride Offers
               <span class="label label-info"><%= Ride.count %></span>
             </a>
-            <a class="mdl-navigation__link" href="<%= my_subscriptions_path %>">
+            <a class="mdl-navigation__link" href="<%= subscriptions_path %>">
               Subscribed
               <span class="label label-info">
                 <%= @current_user.subscriptions.count %>
@@ -49,7 +49,7 @@
           </nav>
           <div class="mdl-layout-spacer"></div>
           <nav class="mdl-navigation" id="nav-drawer-2">
-            <a class="mdl-navigation__link" href="<%= sessions_logout_path %>">Logout</a>
+            <%= link_to  "Logout", session_path(id: @current_user.id), method: :delete, class: 'mdl-navigation__link' %>
           </nav>
         </div>
       <% end %>

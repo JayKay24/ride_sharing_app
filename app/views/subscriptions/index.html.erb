@@ -24,9 +24,9 @@
                 <td><%= ride.take_off_time %></td>
                 <td><%= ride.take_off_date %></td>
                 <td>
-                    <a href="<%= unsubscribe_path(id: ride.id) %>">
+                    <%= link_to subscription_path(id: ride.id), :method => :delete do %>
                         <i class="fa fa-user-times" id="unsubscribe"></i>
-                    </a>
+                    <% end %>
                 </td>
             </tr>
         <% end%>

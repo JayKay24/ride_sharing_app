@@ -25,7 +25,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
@@ -35,8 +35,6 @@ gem 'jbuilder', '~> 2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-
-gem 'bcrypt-ruby', '~> 3.1', '>= 3.1.5', require: 'bcrypt'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -48,6 +46,7 @@ group :development, :test do
     branch: "rails-5"
   gem 'factory_bot_rails'
   gem 'term-ansicolor'
+  gem 'pry-rails'
 end
 
 group :development do

@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .subscription-title {
-    color: #ffffff;
+    color: #696969;
     text-align: center;
 }
 .rides-table {
@@ -19,23 +19,23 @@
         }
     }
     td, th {
-        border: 1px solid #76b852;
+        border: 1px solid #696969;
         padding: 8px;
     }
     th {
-        background-color: #4CAF50;
+        background-color: #696969;
         color: #ffffff;
         text-align: center;
     }
     td {
-        color: #4CAF50;
+        color: #696969;
         text-align: center;
         #unsubscribe {
             color: red;
         }
         i {
             font-size: 30px;
-            color: #4CAF50;
+            color: #696969;
             &:hover {
                 color: #76b852;
             }

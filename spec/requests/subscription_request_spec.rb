@@ -4,33 +4,74 @@ require_relative '../helpers/request_helpers.rb'
 RSpec.describe SubscriptionsController do
   include Helpers::Controllers
 
-  context 'without logging in' do
-    it "should display 'Sign In'" do
-      get '/subscriptions/index'
+  describe 'index' do
+    context 'while logged out' do
+      include_examples 'redirection to sign in example',
+                       http_method: 'get',
+                       initial_path: '/subscriptions',
+                       expected_path: '/sessions/new',
+                       content: 'Sign In',
+                       method_params: {}
+    end
 
-      follow_redirect!
-      expect(response.body).to include('Sign In')
+    context 'while logged in' do
+      before { log_in }
+      it 'should display subscriptions view' do
+        get '/subscriptions'
+
+        expect(response.body).to include(
+          'You currently have no ride subscriptions'
+        )
+        expect(Subscription.count).to eq(0)
+      end
     end
   end
 
-  context 'while logged in' do
-    before do
-      log_in
+  describe 'create' do
+    context 'while logged out' do
+      include_examples 'redirection to sign in example',
+                       http_method: 'post',
+                       initial_path: '/rides',
+                       expected_path: '/sessions/new',
+                       content: 'Sign In',
+                       method_params: {
+                         params: {
+                           subscription: {
+                             id: 1
+                           }
+                         }
+                       }
     end
-    it 'should show all subscriptions' do
-      get '/subscriptions/index'
 
-      expect(response.body).to include(
-        'You currently have no ride subscriptions'
-      )
+    context 'while logged in' do
+      it 'should subscribe to a ride offer' do
+        subscribe_to_ride_offer
+        expect_redirection_to('/subscriptions', 'Takaungu')
+      end
+    end
+  end
+
+  describe 'destroy' do
+    context 'while logged out' do
+      include_examples 'redirection to sign in example',
+                       http_method: 'delete',
+                       initial_path: '/subscriptions/1',
+                       expected_path: '/sessions/new',
+                       content: 'Sign In',
+                       method_params: {}
     end
 
-    it 'should subscribe to a ride offer' do
-      subscribe_to_ride_offer
+    context 'while logged in' do
+      it 'should unsubscribe from a ride offer' do
+        subscribe_to_ride_offer
 
-      follow_redirect!
-      expect(response.body).to include('Takaungu')
-      expect(response.body).to include('All Rides')
+        delete "/subscriptions/#{Ride.first.id}"
+
+        expect_redirection_to(
+          '/subscriptions', 'You successfully unsubscribed from this ride'
+        )
+        expect(Subscription.count).to eq(0)
+      end
     end
   end
 end

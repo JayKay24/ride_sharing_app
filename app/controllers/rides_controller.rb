@@ -1,16 +1,11 @@
 class RidesController < ApplicationController
-  before_action :authenticate_user, only: %i[
-    index show new create update destroy
-  ]
-
   def index
-    @rides = Ride.all
-    if @rides.count == 0
-      flash[:info] = 'There are no ride offers at the moment.'
-    end
+    @rides = Ride.all.includes(:subscriptions)
+    flash[:info] = 'There are no ride offers at the moment.' if
+      @rides.empty?
   end
 
-  def show
+  def edit
     @ride = Ride.find(params[:id])
     render 'update'
   end
@@ -26,7 +21,7 @@ class RidesController < ApplicationController
     @ride.remaining_seats = vehicle.no_of_seats
     if @ride.save
       flash[:success] = 'You successfully created a ride!'
-      redirect_to all_rides_path
+      redirect_to rides_path
     else
       flash[:error] = 'Form is invalid'
       render 'new'
@@ -34,11 +29,10 @@ class RidesController < ApplicationController
   end
 
   def update
-    @ride = Ride.find(ride_params[:id])
-    @ride.update(ride_params)
-    if @ride.save
+    @ride = Ride.find(params[:id])
+    if @ride.update(ride_params)
       flash[:success] = 'You successfully edited the ride offer!'
-      redirect_to all_rides_path
+      redirect_to rides_path
     else
       flash[:error] = 'Form is invalid'
       render 'update'
@@ -49,7 +43,7 @@ class RidesController < ApplicationController
     ride = Ride.find(params[:id])
     ride.destroy
     flash[:success] = 'You successfully cancelled the ride'
-    redirect_to all_rides_path
+    redirect_to rides_path
   end
 
   private

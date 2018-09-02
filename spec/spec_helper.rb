@@ -1,5 +1,6 @@
 require 'simplecov'
 require 'coveralls'
+Dir["./spec/support/**/*.rb"].sort.each { |f| require f }
 
 SimpleCov.start
 Coveralls.wear!

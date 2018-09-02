@@ -13,7 +13,7 @@
 <div class="vehicle-registration">
   <div class="form">
     <h4>Update Vehicle</h4>
-    <%= form_for(:vehicle, url: { controller: 'vehicles', action: 'update'}) do |f| %>
+    <%= form_for(:vehicle, method: 'PUT', url: { controller: 'vehicles', action: 'update'}) do |f| %>
       <%= f.text_field :make, placeholder: 'Vehicle Make', required: true, value: @vehicle.make %>
       <%= f.text_field :reg_no, placeholder: 'Registration Number', required: true, value: @vehicle.reg_no %>
       <%= f.text_field :no_of_seats, placeholder: 'Number of Seats', required: true, value: @vehicle.no_of_seats %>
@@ -21,7 +21,7 @@
       <%= f.text_field :id, value: @vehicle.id, type: 'hidden' %>
       <%= f.submit :'Update Vehicle', class: 'submit-button' %>
       <p class="message">
-        <a href="<%=all_vehicles_path %>">Cancel</a>
+        <a href="<%= vehicles_path %>">Cancel</a>
       </p>
     <% end %>
   </div>

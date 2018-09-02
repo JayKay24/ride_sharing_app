@@ -10,7 +10,10 @@ class Vehicle < ApplicationRecord
 
   validates :no_of_seats,
             presence: true,
-            numericality: { only_integer: true }
+            numericality: {
+              only_integer: true,
+              greater_than: 0
+            }
 
   belongs_to :user
   has_many :rides, dependent: :destroy

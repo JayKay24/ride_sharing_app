@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/JayKay24/ride_sharing_app.svg?branch=test-motor-pool-160057260)](https://travis-ci.org/JayKay24/ride_sharing_app)
+[![Build Status](https://travis-ci.org/JayKay24/ride_sharing_app.svg?branch=ch-refactoring-160221333)](https://travis-ci.org/JayKay24/ride_sharing_app)
 [![Maintainability](https://api.codeclimate.com/v1/badges/029e518a71b8c7d8b4df/maintainability)](https://codeclimate.com/github/JayKay24/ride_sharing_app/maintainability)
-[![Coverage Status](https://coveralls.io/repos/github/JayKay24/ride_sharing_app/badge.svg?branch=test-motor-pool-160057260)](https://coveralls.io/github/JayKay24/ride_sharing_app?branch=test-motor-pool-160057260)
+[![Coverage Status](https://coveralls.io/repos/github/JayKay24/ride_sharing_app/badge.svg?branch=ch-refactoring-160221333)](https://coveralls.io/github/JayKay24/ride_sharing_app?branch=ch-refactoring-160221333)
 
 # Motor Pool App
 
@@ -24,7 +24,17 @@ On the command line. Type:
 ```
 $ cd ride_sharing_app
 $ bundle install
-(- For the next step, you will need to enter your database credentials first before proceeding)
+```
+Skip the following steps if you already have Postgresql installed.
+
+```
+$ brew install postgresql
+$ psql postgres
+```
+
+Once installed, proceed with the following commands:
+```
+$ rails db:create
 $ rails db:migrate
 $ rails server
 ```

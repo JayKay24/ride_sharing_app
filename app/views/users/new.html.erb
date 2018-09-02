@@ -1,4 +1,4 @@
-<% if @user.errors.any? %> %>
+<% if @user.errors.any? %>
   <ul class="Signup_Errors">
     <% for message_error in @user.errors.full_messages %>
       <li class="alert alert-danger alert-dismissable">

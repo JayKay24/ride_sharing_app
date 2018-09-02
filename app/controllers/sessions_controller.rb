@@ -7,14 +7,16 @@ class SessionsController < ApplicationController
   end
 
   def create
-    authorized_user = User.authenticate(params[:email], params[:login_password])
+    authorized_user = User.authenticate(
+      session_params[:username_or_email], session_params[:login_password]
+    )
     if authorized_user
       session[:user_id] = authorized_user.id
       session[:username] = authorized_user.username
       flash[:success] = %(Wow Welcome again,
                         you logged in as
                         #{authorized_user.username})
-      redirect_to all_vehicles_path
+      redirect_to vehicles_path
     else
       flash[:error] = 'Invalid email or password'
       render 'new'
@@ -29,5 +31,13 @@ class SessionsController < ApplicationController
   end
 
   def home
+  end
+
+  private
+
+  def session_params
+    params.require(:session).permit(
+      :username_or_email, :login_password
+    )
   end
 end

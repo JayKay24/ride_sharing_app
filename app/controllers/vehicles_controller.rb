@@ -1,14 +1,11 @@
 class VehiclesController < ApplicationController
-  before_action :authenticate_user, only: %i[index show new create update destroy]
-
   def index
-    @vehicles = @current_user.vehicles.all
-    if @vehicles.length == 0
-      flash[:info] = 'You have no vehicles registered at the moment.'
-    end
+    @vehicles = @current_user.vehicles
+    flash[:info] = 'You have no vehicles registered at the moment.' if
+      @vehicles.empty?
   end
 
-  def show
+  def edit
     @vehicle = Vehicle.find(params[:id])
     render 'update'
   end
@@ -18,37 +15,27 @@ class VehiclesController < ApplicationController
   end
 
   def create
-    if vehicle_params[:no_of_seats].to_i <= 0
-      flash[:error] = 'You must have room for at least one passenger'
-      redirect_to all_vehicles_path
+    @vehicle = @current_user.vehicles.create(vehicle_params)
+    if @vehicle.save
+      flash[:success] = 'You successfully created a vehicle!'
+      redirect_to vehicles_path
     else
-      @vehicle = @current_user.vehicles.create(vehicle_params)
-      if @vehicle.save
-        flash[:success] = 'You successfully created a vehicle!'
-        redirect_to all_vehicles_path
-      else
-        flash[:error] = 'Form is invalid'
-        render 'new'
-      end
+      flash[:error] = 'Form is invalid'
+      render 'new'
     end
   end
 
   def update
-    if vehicle_params[:no_of_seats].to_i <= 0
-      flash[:error] = 'You must have room for at least one passenger'
-      redirect_to all_vehicles_path
-    else
-      vehicle = Vehicle.find(vehicle_params[:id])
-      vehicle.update(vehicle_params)
-      flash[:success] = 'You successfully updated the vehicle'
-      redirect_to all_vehicles_path
-    end
+    vehicle = Vehicle.find(params[:id])
+    vehicle.update(vehicle_params)
+    flash[:success] = 'You successfully updated the vehicle'
+    redirect_to vehicles_path
   end
 
   def destroy
     Vehicle.find(params[:id]).destroy
     flash[:success] = 'You successfully  deregistered the vehicle'
-    redirect_to all_vehicles_path
+    redirect_to vehicles_path
   end
 
   private
