@@ -22,7 +22,7 @@ class Subscription < ApplicationRecord
   end
 
   def ride_must_not_be_full_to_subscribe
-    errors.add(:ride, 'is already full') if ride.remaining_seats <= 0
+    errors.add(:ride, 'is already full') if ride.remaining_seats < 1
   end
 
   def increment_seat_number
