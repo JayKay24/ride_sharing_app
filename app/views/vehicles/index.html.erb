@@ -1,0 +1,50 @@
+<div class="vehicle-title">
+    <h3>My Vehicles</h3>
+</div>
+<% @vehicles.each do |vehicle|%>
+    <div class="card">
+        <div class="card-container">
+            <table class="vehicle-details">
+                <tr>
+                    <td class="headers">Make</td>
+                    <td><%= vehicle.make %></td>
+                </tr>
+                <tr>
+                    <td class="headers">Registration Number</td>
+                    <td><%= vehicle.reg_no %></td>
+                </tr>
+                <tr>
+                    <td class="headers">Seats</td>
+                    <td><%= vehicle.no_of_seats %></td>
+                </tr>
+                <tr>
+                    <td class="headers">Vehicle Type</td>
+                    <td><%= vehicle.vehicle_type %></td>
+                </tr>
+            </table>
+            <p></p>
+            <table class="action-icons">
+                <tr>
+                    <td>
+                        <a href="<%= new_ride_path(vehicle_id: vehicle.id) %>">
+                            <i class="fa fa-car" id="car-icon"></i>
+                            <span class="tooltiptext">New Ride</span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="<%= edit_vehicle_path(id: vehicle.id) %>">
+                            <i class="fa fa-edit"></i>
+                            <span class="tooltiptext">Update Vehicle Details</span>
+                        </a>
+                    </td>
+                    <td>
+                        <%= link_to vehicle_path(id: vehicle.id), :method => :delete do %>
+                            <i class="fa fa-trash" id="delete-icon"></i>
+                            <span class="tooltiptext">Deregister vehicle</span>
+                        <% end %>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+<% end %>

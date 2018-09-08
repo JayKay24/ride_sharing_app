@@ -1,0 +1,158 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+body {
+  background: #DCDCDC; /* fallback for old browsers */
+  font-family: "Roboto", sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  #session-username {
+    color: #FFFFFF;
+  }
+  #nav-header, #nav-drawer, #nav-drawer-2 {
+    background-color: #696969;
+    a {
+      color: #FFFFFF;
+      text-decoration: none;
+      &:hover {
+        background-color: #DCDCDC;
+        color: #696969;
+      }
+    }
+  }
+  #div-drawer {
+    background-color: #696969;
+  }
+  #logo {
+    text-decoration: none;
+    color: #FFFFFF;
+  }
+  .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #17c3e7;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+  }
+  .bootstrap-alerts {
+    max-width: 22.500em;
+  }
+  .register-login-buttons {
+    display: inline-grid;
+    grid-template-columns: 50% 50%;
+    width: 70%;
+    margin-left: 15%;
+
+    .submit-button {
+      display: inline-block;
+      font-family: "Roboto", sans-serif;
+      text-transform: uppercase;
+      outline: 0;
+      background: #696969;
+      width: 90%;
+      margin: 0 5%;
+      border: 0;
+      padding: 0.938em;
+      text-align: center;
+      text-decoration: none;
+      color: #FFFFFF;
+      font-size: 0.875em;
+      box-shadow: 0 0 1.250em 0 rgba(0, 0, 0, 0.2), 0 0.313em 0.313em 0 rgba(0, 0, 0, 0.24);
+
+      -webkit-transition: all 0.3 ease;
+      transition: all 0.3 ease;
+      cursor: pointer;
+    }
+  }
+  .form {
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 22.500em;
+    margin: 0 auto 6.250em;
+    padding: 2.813em;
+    text-align: center;
+    box-shadow: 0 0 1.250em 0 rgba(0, 0, 0, 0.2), 0 0.313em 0.313em 0 rgba(0, 0, 0, 0.24);
+    .submit-button {
+      font-family: "Roboto", sans-serif;
+      text-transform: uppercase;
+      outline: 0;
+      background: #696969;
+      width: 100%;
+      border: 0;
+      padding: 0.938em;
+      color: #FFFFFF;
+      font-size: 0.875em;
+
+      -webkit-transition: all 0.3 ease;
+      transition: all 0.3 ease;
+      cursor: pointer;
+    }
+    .message {
+      margin: 0.938em 0 0;
+      color: #b3b3b3;
+      font-size: 0.750em;
+      a {
+        color: #696969;
+        text-decoration: none;
+      }
+    }
+  }
+  #page {
+    width:65.000em;
+    margin:0 auto;
+    position:relative;
+  }
+  input {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 0.938em;
+    padding: 0.938em;
+    box-sizing: border-box;
+    font-size: 0.875em;
+  }
+  footer {
+    text-align:center;
+    width: 100%;
+    font-size:0.825em;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    color: #696969;
+    .line {
+      margin: 2em 0;
+    }
+    p {
+      position:relative;
+    }
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  body {
+    width: 100%;
+    overflow-x: scroll;
+  }
+}

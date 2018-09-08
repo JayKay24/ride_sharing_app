@@ -1,0 +1,16 @@
+<div class="login-page" xmlns="http://www.w3.org/1999/html">
+  <div class="form">
+    <h4>Sign In</h4>
+    <%= form_for(:session, url: { controller: 'sessions', action: 'create' }) do |f| %>
+      <%= f.text_field :username_or_email, placeholder: 'Email or Username', required: true %>
+      <%= f.password_field :login_password, placeholder: 'Password', required: true  %>
+      <%= f.submit :'sign in', class: 'submit-button' %>
+    <% end %>
+    <p class="message">
+      Not registered? <a href="<%= new_user_path %>">Create an account</a>
+    </p>
+    <p class="message">
+      <a href="<%=home_index_path %>">Cancel</a>
+    </p>
+  </div>
+</div>

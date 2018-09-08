@@ -1,0 +1,96 @@
+<div class="ride-title">
+    <h3>All Rides</h3>
+</div>
+<div>
+    <table class="rides-table">
+        <tr>
+            <th>Origin</th>
+            <th>Destination</th>
+            <th>Remaining Seats</th>
+            <th>Departure Time</th>
+            <th>Departure Date</th>
+            <th colspan="3">Actions</th>
+        </tr>
+        <% @rides.each do |ride|%>
+            <tr>
+                <td><%= ride.origin %></td>
+                <td><%= ride.destination %></td>
+                <td>
+                    <%= ride.remaining_seats %>
+                    <% if ride.remaining_seats == 0 %>
+                        <br>
+                        <span class="label label-success">Full</span>
+                    <% end %>
+                    <% if @current_user.rides.include?(ride) %>
+                        <br>
+                        <span class="label label-success">Subscribed</span>
+                    <% end %>
+                    <% if ride.vehicle.user_id == @current_user.id %>
+                        <span class="label label-info">
+                            <% if ride.subscriptions.count == 1 %>
+                                <br>
+                                <%= ride.subscriptions.count %> Subscriber
+                            <% else %>
+                                <br>
+                                <%= ride.subscriptions.count %> Subscribers
+                            <% end %>
+                        </span>
+                    <% end %>
+                </td>
+                <td><%= ride.take_off_time %></td>
+                <td><%= ride.take_off_date %></td>
+                <% if ride.vehicle.user_id == @current_user.id %>
+                    <td>
+                        <span class="hover-tooltip">
+                            <i class="fa fa-user-plus" id="disabled-user"></i>
+                            <span class="tooltiptext">You can't subscribe to a ride you created</span>
+                        </span>
+                    </td>
+                    <td>
+                        <a href="<%= edit_ride_path(id: ride.id) %>">
+                            <i class="fa fa-edit" id="normal-edit"></i>
+                            <span class="tooltiptext">Update Ride</span>
+                        </a>
+                    </td>
+                    <td>
+                        <%= link_to ride_path(id: ride.id), :method => :delete do %>
+                            <i class="fa fa-ban" id="normal-ban"></i>
+                            <span class="tooltiptext">Cancel Ride</span>
+                        <% end %>
+                    </td>
+                <% else %>
+                    <td>
+                        <% if ride.remaining_seats == 0 %>
+                            <span class="hover-tooltip">
+                                <i class="fa fa-user-plus" id="disabled-user"></i>
+                                <span class="tooltiptext">This ride is already full</span>
+                            </span>
+                        <% elsif @current_user.rides.include?(ride) %>
+                            <span class="hover-tooltip">
+                                <i class="fa fa-user-plus" id="disabled-user"></i>
+                                <span class="tooltiptext">You already subscribed to this ride.</span>
+                            </span>
+                        <% else %>
+                            <%= link_to subscriptions_path(subscription: { id: ride.id }), :method => :post do %>
+                                <i class="fa fa-user-plus" id="normal-user"></i>
+                                <span class="tooltiptext">Subscribe to Ride</span>
+                            <% end %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <span class="hover-tooltip">
+                            <i class="fa fa-edit" id="disabled-edit"></i>
+                            <span class="tooltiptext">This is not yours to edit</span>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="hover-tooltip">
+                            <i class="fa fa-ban" id="disabled-ban"></i>
+                            <span class="tooltiptext">This is not yours to cancel</span>
+                        </span>
+                    </td>
+                <% end %>
+            </tr>
+        <% end%>
+    </table>
+</div>
