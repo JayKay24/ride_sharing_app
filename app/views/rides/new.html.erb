@@ -23,7 +23,7 @@
       <%= f.text_field :vehicle_id, value: @vehicle_id, type: 'hidden' %>
       <%= f.submit :'Create Ride', class: 'submit-button' %>
       <p class="message">
-        <a href="<%=all_rides_path %>">Cancel</a>
+        <a href="<%= rides_path %>">Cancel</a>
       </p>
     <% end %>
   </div>

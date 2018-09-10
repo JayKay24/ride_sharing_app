@@ -64,4 +64,3 @@ class User < ApplicationRecord
     encrypted_password == BCrypt::Engine.hash_secret(login_password, salt)
   end
 end
-

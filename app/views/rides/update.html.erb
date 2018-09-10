@@ -13,7 +13,7 @@
 <div class="create-ride">
   <div class="form">
     <h4>Edit Ride Offer</h4>
-    <%= form_for(:ride, url: { controller: 'rides', action: 'update', method: :put}) do |f| %>
+    <%= form_for(:ride, method: 'PUT', url: { controller: 'rides', action: 'update' }) do |f| %>
       <% if @ride.subscriptions.count > 0 %>
         <%= f.text_field :origin, placeholder: 'Origin', required: true, 
             value: @ride.origin, id: 'origin', disabled: 'disabled' %>
@@ -36,7 +36,7 @@
       <%= f.text_field :_method, value: 'PUT', type: 'hidden' %>
       <%= f.submit :'Update Ride', class: 'submit-button' %>
       <p class="message">
-        <a href="<%=all_rides_path %>">Cancel</a>
+        <a href="<%= rides_path %>">Cancel</a>
       </p>
     <% end %>
   </div>

@@ -47,16 +47,16 @@
                         </span>
                     </td>
                     <td>
-                        <a href="<%= show_ride_path(id: ride.id) %>">
+                        <a href="<%= edit_ride_path(id: ride.id) %>">
                             <i class="fa fa-edit" id="normal-edit"></i>
                             <span class="tooltiptext">Update Ride</span>
                         </a>
                     </td>
                     <td>
-                        <a href="<%= cancel_ride_path(id: ride.id) %>">
+                        <%= link_to ride_path(id: ride.id), :method => :delete do %>
                             <i class="fa fa-ban" id="normal-ban"></i>
                             <span class="tooltiptext">Cancel Ride</span>
-                        </a>
+                        <% end %>
                     </td>
                 <% else %>
                     <td>
@@ -71,10 +71,10 @@
                                 <span class="tooltiptext">You already subscribed to this ride.</span>
                             </span>
                         <% else %>
-                            <a href="<%= subscribe_path(id: ride.id) %>">
+                            <%= link_to subscriptions_path(subscription: { id: ride.id }), :method => :post do %>
                                 <i class="fa fa-user-plus" id="normal-user"></i>
                                 <span class="tooltiptext">Subscribe to Ride</span>
-                            </a>
+                            <% end %>
                         <% end %>
                     </td>
                     <td>

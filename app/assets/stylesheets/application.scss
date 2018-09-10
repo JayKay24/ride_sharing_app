@@ -14,11 +14,7 @@
  *= require_self
  */
 body {
-  background: #76b852; /* fallback for old browsers */
-  background: -webkit-linear-gradient(right, #76b852, #8DC26F);
-  background: -moz-linear-gradient(right, #76b852, #8DC26F);
-  background: -o-linear-gradient(right, #76b852, #8DC26F);
-  background: linear-gradient(to left, #76b852, #8DC26F);
+  background: #DCDCDC; /* fallback for old browsers */
   font-family: "Roboto", sans-serif;
 
   -webkit-font-smoothing: antialiased;
@@ -27,17 +23,18 @@ body {
     color: #FFFFFF;
   }
   #nav-header, #nav-drawer, #nav-drawer-2 {
-    background-color: #4CAF50;
+    background-color: #696969;
     a {
       color: #FFFFFF;
       text-decoration: none;
       &:hover {
-        background-color: #76b852;
+        background-color: #DCDCDC;
+        color: #696969;
       }
     }
   }
   #div-drawer {
-    background-color: #4CAF50;
+    background-color: #696969;
   }
   #logo {
     text-decoration: none;
@@ -70,7 +67,7 @@ body {
       font-family: "Roboto", sans-serif;
       text-transform: uppercase;
       outline: 0;
-      background: #4CAF50;
+      background: #696969;
       width: 90%;
       margin: 0 5%;
       border: 0;
@@ -99,7 +96,7 @@ body {
       font-family: "Roboto", sans-serif;
       text-transform: uppercase;
       outline: 0;
-      background: #4CAF50;
+      background: #696969;
       width: 100%;
       border: 0;
       padding: 0.938em;
@@ -115,7 +112,7 @@ body {
       color: #b3b3b3;
       font-size: 0.750em;
       a {
-        color: #4CAF50;
+        color: #696969;
         text-decoration: none;
       }
     }
@@ -143,12 +140,19 @@ body {
     position: fixed;
     left: 0;
     bottom: 0;
-    color: #FFFFFF;
+    color: #696969;
     .line {
       margin: 2em 0;
     }
     p {
       position:relative;
     }
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  body {
+    width: 100%;
+    overflow-x: scroll;
   }
 }
