@@ -26,10 +26,14 @@ class VehiclesController < ApplicationController
   end
 
   def update
-    vehicle = Vehicle.find(params[:id])
-    vehicle.update(vehicle_params)
-    flash[:success] = 'You successfully updated the vehicle'
-    redirect_to vehicles_path
+    @vehicle = Vehicle.find(params[:id])
+    if @vehicle.update(vehicle_params)
+      flash[:success] = 'You successfully updated the vehicle'
+      redirect_to vehicles_path
+    else
+      flash[:error] = 'Form is invalid'
+      render 'update'
+    end
   end
 
   def destroy

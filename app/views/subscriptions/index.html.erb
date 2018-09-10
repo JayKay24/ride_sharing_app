@@ -1,3 +1,15 @@
+<% if @subscription.errors.any? %>
+  <ul class="Vehicle_Errors">
+    <% for message_error in @subscription.errors.full_messages %>
+      <li class="alert alert-danger alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close"> &times;
+        </a>
+        <%= message_error %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
 <div class="subscription-title">
     <h3>My Ride Subscriptions</h3>
 </div>
