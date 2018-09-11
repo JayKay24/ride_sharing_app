@@ -1,0 +1,44 @@
+// Place all the styles related to the subscriptions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.subscription-title {
+    color: #696969;
+    text-align: center;
+}
+.rides-table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 0 1.250em 0 rgba(0, 0, 0, 0.2), 0 0.313em 0.313em 0 rgba(0, 0, 0, 0.24);
+    tr {
+        &:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        &:hover {
+            background-color: #dddddd;
+        }
+    }
+    td, th {
+        border: 1px solid #696969;
+        padding: 8px;
+    }
+    th {
+        background-color: #696969;
+        color: #ffffff;
+        text-align: center;
+    }
+    td {
+        color: #696969;
+        text-align: center;
+        #unsubscribe {
+            color: red;
+        }
+        i {
+            font-size: 30px;
+            color: #696969;
+            &:hover {
+                color: #76b852;
+            }
+        }
+    }
+}

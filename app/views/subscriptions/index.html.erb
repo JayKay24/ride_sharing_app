@@ -1,0 +1,46 @@
+<% if @subscription.errors.any? %>
+  <ul class="Vehicle_Errors">
+    <% for message_error in @subscription.errors.full_messages %>
+      <li class="alert alert-danger alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close"> &times;
+        </a>
+        <%= message_error %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<div class="subscription-title">
+    <h3>My Ride Subscriptions</h3>
+</div>
+<div>
+    <table class="rides-table">
+        <tr>
+            <th>Origin</th>
+            <th>Destination</th>
+            <th>Remaining Seats</th>
+            <th>Departure Time</th>
+            <th>Departure Date</th>
+            <th colspan="2">Unsubscribe</th>
+        </tr>
+        <% @rides.each do |ride|%>
+            <tr>
+                <td><%= ride.origin %></td>
+                <td><%= ride.destination %></td>
+                <td>
+                    <%= ride.remaining_seats %>
+                    <% if ride.remaining_seats == 0 %>
+                        <span class="label label-info">Full</span>
+                    <% end %>
+                </td>
+                <td><%= ride.take_off_time %></td>
+                <td><%= ride.take_off_date %></td>
+                <td>
+                    <%= link_to subscription_path(id: ride.id), :method => :delete do %>
+                        <i class="fa fa-user-times" id="unsubscribe"></i>
+                    <% end %>
+                </td>
+            </tr>
+        <% end%>
+    </table>
+</div>

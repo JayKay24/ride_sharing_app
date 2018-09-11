@@ -1,0 +1,99 @@
+// Place all the styles related to the rides controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.create-ride {
+    width: 22.500em;
+    padding: 8% 0 0;
+    margin: auto;
+    .time {
+        &::before {
+            content: 'Departure Time';
+            margin-right: .6em;
+            color: #696969;
+        }
+    }
+    .date {
+        background:#f2f2f2 url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat;
+        font-family: "Roboto", sans-serif;
+        outline: 0;
+        width: 100%;
+        border: 0;
+        margin: 0 0 0.938em;
+        padding: 0.938em;
+        box-sizing: border-box;
+        font-size: 0.875em;
+        &::before {
+            content: 'Departure date';
+            margin-right: .6em;
+            color: #696969;
+        }
+        &::-webkit-inner-spin-button {
+            display: none;
+        }
+        &::-webkit-calendar-picker-indicator {
+            opacity: 0;
+        }
+    }
+    h4 {
+        color: #696969;
+    }
+}
+.ride-title {
+    color: #696969;
+    text-align: center;
+}
+.rides-table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 0 1.250em 0 rgba(0, 0, 0, 0.2), 0 0.313em 0.313em 0 rgba(0, 0, 0, 0.24);
+    tr {
+        &:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        &:hover {
+            background-color: #dddddd;
+        }
+    }
+    td, th {
+        border: 1px solid #DCDCDC;
+        padding: 8px;
+    }
+    th {
+        background-color: #DCDCDC;
+        color: #ffffff;
+        text-align: center;
+    }
+    td {
+        color: #696969;
+        text-align: center;
+        a {
+            #normal-user, #normal-edit {
+                &:hover {
+                    color: #76b852;
+                }
+            }
+            #normal-ban {
+                color: red;
+            }
+            &:hover {
+                .tooltiptext {
+                    visibility: visible;
+                }
+            }
+        }
+        .hover-tooltip {
+            &:hover {
+                .tooltiptext {
+                    visibility: visible;
+                }
+            }
+        }
+        #disabled-user, #disabled-ban, #disabled-edit {
+            color: #A9A9A9;
+        }
+        i {
+            font-size: 30px;
+        }
+    }
+}
