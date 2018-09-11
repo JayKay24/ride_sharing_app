@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/JayKay24/ride_sharing_app.svg?branch=ch-refactoring-160221333)](https://travis-ci.org/JayKay24/ride_sharing_app)
+[![Build Status](https://travis-ci.org/JayKay24/ride_sharing_app.svg?branch=master)](https://travis-ci.org/JayKay24/ride_sharing_app)
 [![Maintainability](https://api.codeclimate.com/v1/badges/029e518a71b8c7d8b4df/maintainability)](https://codeclimate.com/github/JayKay24/ride_sharing_app/maintainability)
-[![Coverage Status](https://coveralls.io/repos/github/JayKay24/ride_sharing_app/badge.svg?branch=ch-refactoring-160221333)](https://coveralls.io/github/JayKay24/ride_sharing_app?branch=ch-refactoring-160221333)
+[![Coverage Status](https://coveralls.io/repos/github/JayKay24/ride_sharing_app/badge.svg?branch=master)](https://coveralls.io/github/JayKay24/ride_sharing_app?branch=master)
 
 # Motor Pool App
 
